@@ -23,7 +23,7 @@ th,td{border:1px solid #ddd;padding:6px;text-align:left}
 
 <div class="filters">
 <label>Planning Month</label>
-<select id="month"><option>All</option><option>September</option><option>Feb</option><option>Mar</option></select>
+<select id="month"><option>All</option><option>September</option><option>October</option><option>December</option></select>
 
 <label>Factory</label>
 <select id="factory"><option>All</option><option>Bangalore</option><option>Hyderabad</option><option>Chennai</option></select>
@@ -83,12 +83,12 @@ const data=[
 {m:'September',f:'Bangalore',p:'FCT',forecast:50000,r:2400,a:1800},
 {m:'September',f:'Hyderabad',p:'SMT',forecast:30000,r:1800,a:2500},
 {m:'September',f:'Chennai',p:'Wave',forecast:25000,r:1200,a:1600},
-{m:'Feb',f:'Bangalore',p:'SMT',forecast:55000,r:3900,a:4000},
-{m:'Feb',f:'Hyderabad',p:'ICT',forecast:35000,r:1900,a:1700},
-{m:'Feb',f:'Chennai',p:'Wave',forecast:28000,r:1800,a:2100},
-{m:'Mar',f:'Bangalore',p:'FCT',forecast:60000,r:2800,a:1800},
-{m:'Mar',f:'Hyderabad',p:'MI',forecast:40000,r:2200,a:2200},
-{m:'Mar',f:'Chennai',p:'SMT',forecast:30000,r:1700,a:2100}
+{m:'October',f:'Bangalore',p:'SMT',forecast:55000,r:3900,a:4000},
+{m:'October',f:'Hyderabad',p:'ICT',forecast:35000,r:1900,a:1700},
+{m:'October',f:'Chennai',p:'Wave',forecast:28000,r:1800,a:2100},
+{m:'December',f:'Bangalore',p:'FCT',forecast:60000,r:2800,a:1800},
+{m:'December',f:'Hyderabad',p:'MI',forecast:40000,r:2200,a:2200},
+{m:'December',f:'Chennai',p:'SMT',forecast:30000,r:1700,a:2100}
 ];
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
