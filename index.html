@@ -99,6 +99,93 @@ border-radius:6px;
 font-size:14px;
 background:white;
 }
+ .app-container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar{
+    width:260px;
+    background:#ffffff;
+    border-right:1px solid #e5e7eb;
+    box-shadow:2px 0 10px rgba(0,0,0,0.08);
+    padding:20px;
+}
+
+/* ===== LOGO ===== */
+
+.sidebar-logo{
+    font-size:30px;
+    font-weight:700;
+    color:#00B140;
+    line-height:1.1;
+    margin-bottom:40px;
+}
+
+.sidebar-logo span{
+    display:block;
+    font-size:22px;
+    letter-spacing:3px;
+}
+
+/* ===== MENU ===== */
+
+.menu{
+    margin-top:20px;
+}
+
+.menu-item{
+    padding:14px 16px;
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+    font-weight:600;
+    color:#1E293B;
+    transition:0.3s;
+}
+
+.menu-item:hover{
+    background:#E8F5E9;
+    color:#00B140;
+}
+
+/* Active Menu */
+
+.menu-item.active{
+    background:#DFF5E5;
+    color:#00B140;
+    border-left:4px solid #00B140;
+}
+
+/* ===== SUB MENU ===== */
+
+.submenu{
+    margin-left:18px;
+    margin-top:5px;
+}
+
+.submenu-item{
+    padding:10px;
+    margin-bottom:5px;
+    border-radius:6px;
+    cursor:pointer;
+    color:#475569;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.submenu-item:hover{
+    background:#F0FDF4;
+    color:#00B140;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.main-content{
+    flex:1;
+}
 </style>
 </head>
 <body>
