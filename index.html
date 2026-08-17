@@ -28,6 +28,42 @@ th,td{border:1px solid #ddd;padding:6px;text-align:left}
 transform:translateY(-3px);
 box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
+ .kpi-title{
+    font-size:13px;
+    color:#64748B;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.kpi-value{
+    font-size:30px;
+    font-weight:700;
+    color:#1E293B;
+}
+
+.forecast-card{
+    border-top:4px solid #3B82F6;
+}
+
+.required-card{
+    border-top:4px solid #00B140;
+}
+
+.available-card{
+    border-top:4px solid #10B981;
+}
+
+.util-card{
+    border-top:4px solid #F59E0B;
+}
+
+.bottleneck-card{
+    border-top:4px solid #EF4444;
+}
+
+.line-card{
+    border-top:4px solid #00B140;
+}
 </style>
 </head>
 <body>
@@ -45,12 +81,35 @@ box-shadow:0 8px 20px rgba(0,0,0,.12);
 </div>
 
 <div class="kpis">
-<div class="card"><b>Forecast Volume</b><div id="forecast"></div></div>
-<div class="card"><b>Required Capacity Hours</b><div id="req"></div></div>
-<div class="card"><b>Available Capacity Hours</b><div id="avail"></div></div>
-<div class="card"><b>Capacity Utilization</b><div id="util"></div></div>
-<div class="card"><b>Bottlenecks</b><div id="bott"></div></div>
-<div class="card"><b>Additional Lines Required</b><div id="lines"></div></div>
+ <div class="card forecast-card">
+        <div class="kpi-title">Forecast Volume</div>
+        <div class="kpi-value" id="forecast"></div>
+    </div>
+
+    <div class="card required-card">
+        <div class="kpi-title">Required Capacity Hours</div>
+        <div class="kpi-value" id="req"></div>
+    </div>
+
+    <div class="card available-card">
+        <div class="kpi-title">Available Capacity Hours</div>
+        <div class="kpi-value" id="avail"></div>
+    </div>
+
+    <div class="card util-card">
+        <div class="kpi-title">Capacity Utilization</div>
+        <div class="kpi-value" id="util"></div>
+    </div>
+
+    <div class="card bottleneck-card">
+        <div class="kpi-title">Bottlenecks</div>
+        <div class="kpi-value" id="bott"></div>
+    </div>
+
+    <div class="card line-card">
+        <div class="kpi-title">Additional Lines Required</div>
+        <div class="kpi-value" id="lines"></div>
+    </div>
 </div>
 
 <div class="row">
