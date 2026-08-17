@@ -186,45 +186,35 @@ background:white;
 .main-content{
     flex:1;
 }
+ #capacitySubmenu{
+    display:none;
+}
 </style>
 </head>
 <body>
- <div class="app-container">
+<div class="menu">
 
-    <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="menu-item active" onclick="showDashboard()">
+        Dashboard
+    </div>
 
-        <div class="sidebar-logo">
-            SCHNEIDER
-            <span>ELECTRIC</span>
+    <div class="menu-item" onclick="toggleCapacityMenu()">
+        Capacity View ▼
+    </div>
+
+    <div class="submenu" id="capacitySubmenu">
+
+        <div class="submenu-item" onclick="showLineView()">
+            Line View
         </div>
 
-        <div class="menu">
-
-            <div class="menu-item active">
-                📊 Dashboard
-            </div>
-
-            <div class="menu-item">
-                📈 Capacity View
-            </div>
-
-            <div class="submenu">
-
-                <div class="submenu-item">
-                    • Line View
-                </div>
-
-                <div class="submenu-item">
-                    • Process Load Rate
-                </div>
-
-            </div>
-
+        <div class="submenu-item" onclick="showProcessView()">
+            Process Load Rate
         </div>
 
     </div>
 
+</div>
     <!-- Main Content -->
     <div class="main-content">
 
@@ -412,6 +402,28 @@ Object.keys(bf).forEach(f=>{
 
 month.onchange=refresh; factory.onchange=refresh; process.onchange=refresh;
 refresh();
+ function toggleCapacityMenu(){
+
+    const menu = document.getElementById("capacitySubmenu");
+
+    if(menu.style.display === "block"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "block";
+    }
+}
+
+function showDashboard(){
+    alert("Dashboard");
+}
+
+function showLineView(){
+    alert("Line View");
+}
+
+function showProcessView(){
+    alert("Process Load Rate");
+}
 </script>
     </div>
  </div>
