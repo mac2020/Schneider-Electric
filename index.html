@@ -1283,6 +1283,72 @@ updateProcessConstraintCounts();
         row.process === selectedProcess
     );
 }
+function renderHeatmap() {
+
+    const rows = getHeatmapData();
+
+    const heatmapBody =
+        document.getElementById("heatmapBody");
+
+    heatmapBody.innerHTML = "";
+
+    const lines = [...new Set(
+        rows.map(row => row.line)
+    )];
+
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    lines.forEach(line => {
+
+        let html = `<tr>`;
+
+        html += `
+            <td class="heatmap-line">
+                ${line}
+            </td>
+        `;
+
+        months.forEach(month => {
+
+            const row = rows.find(item =>
+                item.line === line &&
+                item.month === month
+            );
+
+            if (!row) {
+                html += `<td class="heatmap-cell">-</td>`;
+                return;
+            }
+
+            const loadRate =
+                (row.requiredHours / row.availableHours) * 100;
+
+            html += `
+                <td class="heatmap-cell">
+                    ${loadRate.toFixed(0)}%
+                </td>
+            `;
+        });
+
+        html += `</tr>`;
+
+        heatmapBody.innerHTML += html;
+    });
+} 
+ renderHeatmap();
 
  renderLineBars();
  updateProcessConstraintCounts();
