@@ -233,6 +233,7 @@ background:white;
     <div class="main-content">
 
         <!-- Existing Dashboard Starts Here -->
+     <div id="dashboardPage">
 
 <div class="header"> <div>
         <h2>Manufacturing Capacity Planning Dashboard</h2>
@@ -333,6 +334,14 @@ background:white;
 <h3>Capacity Expansion Recommendations</h3>
 <div id="recommendations"></div>
 </div>
+      </div>
+     <div id="lineViewPage" style="display:none;padding:30px;">
+    <h2>Line View</h2>
+</div>
+
+<div id="processViewPage" style="display:none;padding:30px;">
+    <h2>Process Load Rate</h2>
+</div>
 
 <script>
 const data=[
@@ -421,15 +430,24 @@ refresh();
 }
 
 function showDashboard(){
-    alert("Dashboard");
+
+    document.getElementById("dashboardPage").style.display="block";
+    document.getElementById("lineViewPage").style.display="none";
+    document.getElementById("processViewPage").style.display="none";
 }
 
 function showLineView(){
-    alert("Line View");
+
+    document.getElementById("dashboardPage").style.display="none";
+    document.getElementById("lineViewPage").style.display="block";
+    document.getElementById("processViewPage").style.display="none";
 }
 
 function showProcessView(){
-    alert("Process Load Rate");
+
+    document.getElementById("dashboardPage").style.display="none";
+    document.getElementById("lineViewPage").style.display="none";
+    document.getElementById("processViewPage").style.display="block";
 }
 </script>
     </div>
