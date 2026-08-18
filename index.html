@@ -1042,6 +1042,7 @@ const rows = getFilteredCapacityData();
     const overloaded = rows.filter(row =>
         row.requiredHours / row.availableHours > 1
     );
+ document.getElementById("overloadedLines").innerText = overloaded.length;
 
     console.log("Overloaded Count:", overloaded.length);
 
