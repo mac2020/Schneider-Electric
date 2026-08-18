@@ -1399,13 +1399,19 @@ html += `
  renderLineBars();
  updateProcessConstraintCounts();
 document.getElementById("stageYear")
-    .addEventListener("change", renderLineBars);
+    .addEventListener("change", () => {
+        renderLineBars();
+        renderHeatmap();
+    });
 
 document.getElementById("stageMonth")
     .addEventListener("change", renderLineBars);
 
 document.getElementById("stageFactory")
-    .addEventListener("change", renderLineBars);
+    .addEventListener("change", () => {
+        renderLineBars();
+        renderHeatmap();
+    });
  function getConstraintCount(processName) {
 
     const year = Number(document.getElementById("stageYear").value);
