@@ -1035,7 +1035,7 @@ function getFilteredCapacityData() {
         row.process === selectedProcess
     );
 }
- console.log(getFilteredCapacityData());
+
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
 const pc=new Chart(document.getElementById('processChart'),{type:'bar',data:{labels:[],datasets:[{label:'Process Utilization %',data:[]}]}});
