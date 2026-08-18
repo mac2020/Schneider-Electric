@@ -190,6 +190,50 @@ background:white;
  #capacitySubmenu{
     display:none;
 }
+ /* ===== Capacity View Filters ===== */
+
+.stage-filters{
+    display:flex;
+    align-items:flex-end;
+    gap:18px;
+    padding:15px 18px;
+    background:#ffffff;
+    border:1px solid #E5E7EB;
+    border-radius:10px;
+    margin:15px 0;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+.filter-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    min-width:160px;
+}
+
+.filter-group label{
+    font-size:12px;
+    font-weight:600;
+    color:#64748B;
+}
+
+.filter-group select{
+    width:100%;
+    box-sizing:border-box;
+    padding:9px 12px;
+    border:1px solid #D1D5DB;
+    border-radius:6px;
+    font-size:14px;
+    color:#1E293B;
+    background:#ffffff;
+    cursor:pointer;
+}
+
+.filter-group select:focus{
+    outline:none;
+    border-color:#00B140;
+    box-shadow:0 0 0 2px rgba(0,177,64,0.10);
+}
 </style>
 </head>
 <body>
