@@ -1336,11 +1336,20 @@ function renderHeatmap() {
             const loadRate =
                 (row.requiredHours / row.availableHours) * 100;
 
-            html += `
-                <td class="heatmap-cell">
-                    ${loadRate.toFixed(0)}%
-                </td>
-            `;
+            let cellClass = "heatmap-cell";
+
+if (loadRate > 100) {
+    cellClass += " critical";
+}
+else if (loadRate >= 80) {
+    cellClass += " watch";
+}
+
+html += `
+    <td class="${cellClass}">
+        ${loadRate.toFixed(0)}%
+    </td>
+`;
         });
 
         html += `</tr>`;
