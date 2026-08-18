@@ -1187,6 +1187,9 @@ document.getElementById("stageFactory").addEventListener("change", renderLineBar
 
     return overloaded.length;
 }
+ console.log("SMT constraints:", getConstraintCount("SMT"));
+console.log("MI constraints:", getConstraintCount("Manual Insertion"));
+console.log("CC constraints:", getConstraintCount("Conformal Coating"));
  function selectProcess(processName) {
 
     selectedProcess = processName;
