@@ -1268,6 +1268,22 @@ document.getElementById("averageOEE").innerText =
         `${rows.length} lines`;
 updateProcessConstraintCounts();
 }
+ function getHeatmapData() {
+
+    const year = Number(
+        document.getElementById("stageYear").value
+    );
+
+    const factory =
+        document.getElementById("stageFactory").value;
+
+    return capacityViewData.filter(row =>
+        row.year === year &&
+        row.factory === factory &&
+        row.process === selectedProcess
+    );
+}
+ getHeatmapData().map(row => row.month)
  renderLineBars();
  updateProcessConstraintCounts();
 document.getElementById("stageYear")
