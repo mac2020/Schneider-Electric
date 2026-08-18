@@ -340,7 +340,40 @@ background:white;
 </div>
 
 <div id="processViewPage" style="display:none;padding:30px;">
-    <h2>Process Load Rate</h2>
+
+    <h2>Stage Load Rates</h2>
+
+    <div class="stage-filters">
+
+        <div class="filter-group">
+            <label for="stageYear">Year</label>
+            <select id="stageYear">
+                <option value="2027" selected>2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="stageMonth">Month</label>
+            <select id="stageMonth">
+                <option value="January" selected>Jan</option>
+                <option value="February">Feb</option>
+                <option value="March">Mar</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="stageFactory">Factory</label>
+            <select id="stageFactory">
+                <option value="Aloka" selected>Aloka</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+            </select>
+        </div>
+
+    </div>
+
 </div>
 
 <script>
