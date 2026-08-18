@@ -1166,9 +1166,14 @@ document.getElementById("averageOEE").innerText =
 }
  renderLineBars();
  updateProcessConstraintCounts();
-document.getElementById("stageYear").addEventListener("change", renderLineBars);
-document.getElementById("stageMonth").addEventListener("change", renderLineBars);
-document.getElementById("stageFactory").addEventListener("change", renderLineBars);
+document.getElementById("stageYear")
+    .addEventListener("change", refreshCapacityView);
+
+document.getElementById("stageMonth")
+    .addEventListener("change", refreshCapacityView);
+
+document.getElementById("stageFactory")
+    .addEventListener("change", refreshCapacityView);
  function getConstraintCount(processName) {
 
     const year = Number(document.getElementById("stageYear").value);
