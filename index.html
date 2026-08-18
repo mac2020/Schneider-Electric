@@ -1097,7 +1097,8 @@ function renderLineBars() {
 const rows = getFilteredCapacityData();
  document.getElementById("selectedStage").innerText =
     selectedProcess;
-
+document.getElementById("lineSectionTitle").innerText =
+    `${selectedProcess} line load rate`;
 document.getElementById("activeLinesText").innerText =
     `${rows.length} active lines`;
 
