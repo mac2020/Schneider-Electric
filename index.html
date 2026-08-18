@@ -1103,7 +1103,24 @@ const heatmapMonths = [
     "November",
     "December"
 ];
+const additionalYearData = [];
 
+[2028, 2029].forEach(year => {
+
+    capacityViewData
+        .filter(row => row.year === 2027)
+        .forEach(baseRow => {
+
+            additionalYearData.push({
+                ...baseRow,
+                year: year
+            });
+
+        });
+
+});
+
+capacityViewData.push(...additionalYearData);
 const baseCapacityData = [...capacityViewData];
 
 const generatedHeatmapData = [];
