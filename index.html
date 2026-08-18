@@ -668,17 +668,17 @@ background:white;
 
         <div id="processCards" class="process-cards">
 
-            <div class="process-card active">
+            <div class="process-card active" onclick="selectProcess('SMT')">
                 <div class="process-name">SMT</div>
                 <div class="process-constraint">1 constraint</div>
             </div>
 
-            <div class="process-card">
+            <div class="process-card" onclick="selectProcess('Manual Insertion')">
                 <div class="process-name">Manual Insertion</div>
                 <div class="process-constraint">3 constraints</div>
             </div>
 
-            <div class="process-card">
+<div class="process-card" onclick="selectProcess('Conformal Coating')">
                 <div class="process-name">Conformal Coating</div>
                 <div class="process-constraint">2 constraints</div>
             </div>
@@ -1125,6 +1125,25 @@ function renderLineBars() {
 document.getElementById("stageYear").addEventListener("change", renderLineBars);
 document.getElementById("stageMonth").addEventListener("change", renderLineBars);
 document.getElementById("stageFactory").addEventListener("change", renderLineBars);
+ function selectProcess(processName) {
+
+    selectedProcess = processName;
+
+    document.querySelectorAll(".process-card").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    const selectedCard = [...document.querySelectorAll(".process-card")]
+        .find(card =>
+            card.querySelector(".process-name").innerText === processName
+        );
+
+    if (selectedCard) {
+        selectedCard.classList.add("active");
+    }
+
+    renderLineBars();
+}
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
 const pc=new Chart(document.getElementById('processChart'),{type:'bar',data:{labels:[],datasets:[{label:'Process Utilization %',data:[]}]}});
