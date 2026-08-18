@@ -1035,7 +1035,93 @@ function getFilteredCapacityData() {
         row.process === selectedProcess
     );
 }
- console.log(getFilteredCapacityData());
+function renderLineBars() {
+
+    const rows = getFilteredCapacityData();
+
+    const container = document.getElementById("lineBars");
+
+    container.innerHTML = "";
+
+    rows.forEach(row => {
+
+        const loadRate =
+            (row.requiredHours / row.availableHours) * 100;
+
+        let fillClass = "available";
+        let statusClass = "available-status";
+        let statusText = "Available";
+
+        if (loadRate > 100) {
+            fillClass = "critical";
+            statusClass = "critical-status";
+            statusText = "Critical";
+        }
+        else if (loadRate >= 80) {
+            fillClass = "watch";
+            statusClass = "watch-status";
+            statusText = "Watch";
+        }
+
+        const barWidth = Math.min(loadRate, 100);
+
+        container.innerHTML += `
+
+            <div class="line-row">
+
+                <div class="line-info">
+                    <div class="line-name">
+                        ${row.line}
+                    </div>
+
+                    <div class="line-volume">
+                        ${row.volume.toLocaleString()} volume
+                    </div>
+                </div>
+
+
+                <div class="line-oee">
+
+                    <span>OEE</span>
+
+                    <strong>
+                        ${row.oee}%
+                    </strong>
+
+                </div>
+
+
+                <div class="load-rate-area">
+
+                    <div class="load-rate-value">
+                        ${loadRate.toFixed(0)}%
+                    </div>
+
+                    <div class="load-bar">
+
+                        <div
+                            class="load-fill ${fillClass}"
+                            style="width:${barWidth}%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="line-status ${statusClass}">
+                    ${statusText}
+                </div>
+
+            </div>
+
+        `;
+    });
+
+    document.getElementById("lineCountText").innerText =
+        `${rows.length} lines`;
+}
+ renderLineBars();
 
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
