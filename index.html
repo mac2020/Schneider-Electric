@@ -286,6 +286,50 @@ background:white;
     font-size:12px;
     color:#64748B;
 }
+ /* ===== Selected Stage KPI Summary ===== */
+
+.stage-summary{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:12px;
+    background:#ffffff;
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    padding:18px;
+    margin:15px 0;
+}
+
+.summary-card{
+    padding:18px;
+    border-right:1px solid #E5E7EB;
+}
+
+.summary-card:last-child{
+    border-right:none;
+}
+
+.summary-label{
+    font-size:12px;
+    font-weight:600;
+    color:#64748B;
+    margin-bottom:8px;
+}
+
+.summary-value{
+    font-size:25px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+.summary-sub{
+    margin-top:5px;
+    font-size:11px;
+    color:#94A3B8;
+}
+
+.danger-text{
+    color:#EF4444;
+}
 </style>
 </head>
 <body>
