@@ -1057,6 +1057,18 @@ const rows = getFilteredCapacityData();
         totalAvailableHours > 0
             ? (totalRequiredHours / totalAvailableHours) * 100
             : 0;
+ const totalOEE = rows.reduce(
+    (sum, row) => sum + row.oee,
+    0
+);
+
+const averageOEE =
+    rows.length > 0
+        ? totalOEE / rows.length
+        : 0;
+
+document.getElementById("averageOEE").innerText =
+    averageOEE.toFixed(0) + "%";
 
     document.getElementById("stageUtilization").innerText =
         stageUtilization.toFixed(0) + "%";
