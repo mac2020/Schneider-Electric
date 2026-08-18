@@ -1043,6 +1043,23 @@ const rows = getFilteredCapacityData();
         row.requiredHours / row.availableHours > 1
     );
  document.getElementById("overloadedLines").innerText = overloaded.length;
+     const totalRequiredHours = rows.reduce(
+        (sum, row) => sum + row.requiredHours,
+        0
+    );
+
+    const totalAvailableHours = rows.reduce(
+        (sum, row) => sum + row.availableHours,
+        0
+    );
+
+    const stageUtilization =
+        totalAvailableHours > 0
+            ? (totalRequiredHours / totalAvailableHours) * 100
+            : 0;
+
+    document.getElementById("stageUtilization").innerText =
+        stageUtilization.toFixed(0) + "%";
 
     console.log("Overloaded Count:", overloaded.length);
 
