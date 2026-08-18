@@ -1122,7 +1122,9 @@ function renderLineBars() {
         `${rows.length} lines`;
 }
  renderLineBars();
-
+document.getElementById("stageYear").addEventListener("change", renderLineBars);
+document.getElementById("stageMonth").addEventListener("change", renderLineBars);
+document.getElementById("stageFactory").addEventListener("change", renderLineBars);
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
 const pc=new Chart(document.getElementById('processChart'),{type:'bar',data:{labels:[],datasets:[{label:'Process Utilization %',data:[]}]}});
