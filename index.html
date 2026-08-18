@@ -1038,6 +1038,11 @@ function getFilteredCapacityData() {
 function renderLineBars() {
 
 const rows = getFilteredCapacityData();
+ document.getElementById("selectedStage").innerText =
+    selectedProcess;
+
+document.getElementById("activeLinesText").innerText =
+    `${rows.length} active lines`;
 
     const overloaded = rows.filter(row =>
         row.requiredHours / row.availableHours > 1
