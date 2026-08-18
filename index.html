@@ -1165,6 +1165,7 @@ document.getElementById("averageOEE").innerText =
         `${rows.length} lines`;
 }
  renderLineBars();
+ updateProcessConstraintCounts();
 document.getElementById("stageYear").addEventListener("change", renderLineBars);
 document.getElementById("stageMonth").addEventListener("change", renderLineBars);
 document.getElementById("stageFactory").addEventListener("change", renderLineBars);
@@ -1186,6 +1187,25 @@ document.getElementById("stageFactory").addEventListener("change", renderLineBar
     );
 
     return overloaded.length;
+}
+ function updateProcessConstraintCounts() {
+
+    document.querySelectorAll(".process-card").forEach(card => {
+
+        const processName =
+            card.querySelector(".process-name").innerText;
+
+        const count =
+            getConstraintCount(processName);
+
+        const constraintElement =
+            card.querySelector(".process-constraint");
+
+        constraintElement.innerText =
+            count === 1
+                ? "1 constraint"
+                : `${count} constraints`;
+    });
 }
  console.log("SMT constraints:", getConstraintCount("SMT"));
 console.log("MI constraints:", getConstraintCount("Manual Insertion"));
