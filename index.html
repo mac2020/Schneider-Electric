@@ -1168,6 +1168,25 @@ document.getElementById("averageOEE").innerText =
 document.getElementById("stageYear").addEventListener("change", renderLineBars);
 document.getElementById("stageMonth").addEventListener("change", renderLineBars);
 document.getElementById("stageFactory").addEventListener("change", renderLineBars);
+ function getConstraintCount(processName) {
+
+    const year = Number(document.getElementById("stageYear").value);
+    const month = document.getElementById("stageMonth").value;
+    const factory = document.getElementById("stageFactory").value;
+
+    const rows = capacityViewData.filter(row =>
+        row.year === year &&
+        row.month === month &&
+        row.factory === factory &&
+        row.process === processName
+    );
+
+    const overloaded = rows.filter(row =>
+        row.requiredHours / row.availableHours > 1
+    );
+
+    return overloaded.length;
+}
  function selectProcess(processName) {
 
     selectedProcess = processName;
