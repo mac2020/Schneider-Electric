@@ -1020,6 +1020,63 @@ const capacityViewData = [
     }
 
 ];
+ // =====================================================
+// GENERATE SAMPLE MONTHLY DATA FOR HEATMAP
+// =====================================================
+
+const heatmapMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+const baseCapacityData = [...capacityViewData];
+
+const generatedHeatmapData = [];
+
+baseCapacityData.forEach(baseRow => {
+
+    heatmapMonths.forEach((month, index) => {
+
+        // January already exists in capacityViewData
+        if (index === 0) {
+            return;
+        }
+
+        let monthlyRequiredHours = baseRow.requiredHours;
+
+        // Small monthly variation for sample data
+        const variation = 0.90 + (index * 0.02);
+
+        monthlyRequiredHours =
+            Math.round(baseRow.requiredHours * variation);
+
+        generatedHeatmapData.push({
+            year: baseRow.year,
+            month: month,
+            factory: baseRow.factory,
+            process: baseRow.process,
+            line: baseRow.line,
+            volume: Math.round(baseRow.volume * variation),
+            oee: baseRow.oee,
+            requiredHours: monthlyRequiredHours,
+            availableHours: baseRow.availableHours
+        });
+
+    });
+
+});
+
+capacityViewData.push(...generatedHeatmapData);
  let selectedProcess = "SMT";
 
 function getFilteredCapacityData() {
