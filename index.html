@@ -1020,6 +1020,22 @@ const capacityViewData = [
     }
 
 ];
+ let selectedProcess = "SMT";
+
+function getFilteredCapacityData() {
+
+    const year = Number(document.getElementById("stageYear").value);
+    const month = document.getElementById("stageMonth").value;
+    const factory = document.getElementById("stageFactory").value;
+
+    return capacityViewData.filter(row =>
+        row.year === year &&
+        row.month === month &&
+        row.factory === factory &&
+        row.process === selectedProcess
+    );
+}
+ console.log(getFilteredCapacityData());
 
 const fc=new Chart(document.getElementById('factoryChart'),{type:'bar',data:{labels:[],datasets:[{label:'Factory Utilization %',data:[]}]}});
 const pc=new Chart(document.getElementById('processChart'),{type:'bar',data:{labels:[],datasets:[{label:'Process Utilization %',data:[]}]}});
