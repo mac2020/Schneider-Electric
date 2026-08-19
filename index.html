@@ -724,6 +724,9 @@ background:white;
         <label for="lineFamilyFilter">Family</label>
         <select id="lineFamilyFilter">
             <option value="" selected>Select Family</option>
+         <option value="Family A">Family A</option>
+    <option value="Family B">Family B</option>
+    <option value="Family C">Family C</option>
         </select>
     </div>
 
@@ -1656,6 +1659,14 @@ document.getElementById("stageFactory")
     .addEventListener("change", () => {
         renderLineBars();
         renderHeatmap();
+    });
+ document.getElementById("lineFamilyFilter")
+    .addEventListener("change", function () {
+
+        const selectedFamily = this.value;
+
+        console.log("Selected Family:", selectedFamily);
+
     });
  function getConstraintCount(processName) {
 
