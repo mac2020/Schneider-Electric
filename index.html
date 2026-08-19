@@ -731,6 +731,36 @@ background:white;
     </div>
 
 </div>
+      <div class="line-assignment-calendar">
+
+        <h3>Line Assignment Calendar</h3>
+
+        <table id="lineAssignmentTable">
+
+            <thead>
+                <tr>
+                    <th>Line</th>
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mar</th>
+                    <th>Apr</th>
+                    <th>May</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                    <th>Sep</th>
+                    <th>Oct</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                </tr>
+            </thead>
+
+            <tbody id="lineAssignmentTableBody">
+            </tbody>
+
+        </table>
+
+    </div>
 </div>
 
 <div id="processViewPage" style="display:none;padding:30px;">
@@ -1826,8 +1856,71 @@ document.getElementById("stageFactory")
         });
 
         console.log("Line View Filter Result:", filteredLineData);
+       renderLineAssignmentCalendar(filteredLineData);
 
     });
+ 
+ function renderLineAssignmentCalendar(filteredData) {
+
+    const tableBody =
+        document.getElementById("lineAssignmentTableBody");
+
+    if (!tableBody) return;
+
+    tableBody.innerHTML = "";
+
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    const lines = [
+        ...new Set(
+            filteredData.map(row => row.line)
+        )
+    ];
+
+    lines.forEach(line => {
+
+        const row = document.createElement("tr");
+
+        const lineCell = document.createElement("td");
+        lineCell.textContent = line;
+        row.appendChild(lineCell);
+
+        months.forEach(month => {
+
+            const cell = document.createElement("td");
+
+            const assignment = filteredData.find(
+                item =>
+                    item.line === line &&
+                    item.month === month
+            );
+
+            if (assignment) {
+                cell.textContent = assignment.sku;
+            } else {
+                cell.textContent = "";
+            }
+
+            row.appendChild(cell);
+
+        });
+
+        tableBody.appendChild(row);
+    });
+}
  function getConstraintCount(processName) {
 
     const year = Number(document.getElementById("stageYear").value);
