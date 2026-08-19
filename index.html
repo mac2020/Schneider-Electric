@@ -1801,7 +1801,31 @@ document.getElementById("stageFactory")
 
         const selectedFamily = this.value;
 
-        console.log("Selected Family:", selectedFamily);
+        const selectedFactory =
+            document.getElementById("lineFactoryFilter").value;
+
+        const selectedYear =
+            Number(document.getElementById("lineYearFilter").value);
+
+        const filteredLineData = lineViewData.filter(row => {
+
+            const yearMatch =
+                row.year === selectedYear;
+
+            const factoryMatch =
+                !selectedFactory ||
+                row.factory === selectedFactory;
+
+            const familyMatch =
+                !selectedFamily ||
+                row.family === selectedFamily;
+
+            return yearMatch &&
+                   factoryMatch &&
+                   familyMatch;
+        });
+
+        console.log("Line View Filter Result:", filteredLineData);
 
     });
  function getConstraintCount(processName) {
