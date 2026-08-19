@@ -699,6 +699,35 @@ background:white;
       </div>
      <div id="lineViewPage" style="display:none;padding:30px;">
     <h2>Line View</h2>
+      <!-- Line View Filters -->
+<div class="line-view-filters">
+
+    <div class="filter-group">
+        <label for="lineYearFilter">Year</label>
+        <select id="lineYearFilter">
+            <option value="2027" selected>2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="lineFactoryFilter">Factory</label>
+        <select id="lineFactoryFilter">
+            <option value="Aloka" selected>Aloka</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="lineFamilyFilter">Family</label>
+        <select id="lineFamilyFilter">
+            <option value="" selected>Select Family</option>
+        </select>
+    </div>
+
+</div>
 </div>
 
 <div id="processViewPage" style="display:none;padding:30px;">
@@ -1261,6 +1290,45 @@ const capacityViewData = [
 }
 
 ];
+ <script>
+
+    // tumhara existing JavaScript
+    // ...
+    // existing functions
+    // ...
+
+    function populateLineFamilyFilter() {
+
+        const familyFilter =
+            document.getElementById("lineFamilyFilter");
+
+        if (!familyFilter) return;
+
+        familyFilter.innerHTML =
+            `<option value="">Select Family</option>`;
+
+        const families = [
+            ...new Set(
+                capacityViewData
+                    .map(row => row.family)
+                    .filter(Boolean)
+            )
+        ];
+
+        families.sort();
+
+        families.forEach(family => {
+
+            familyFilter.innerHTML += `
+                <option value="${family}">
+                    ${family}
+                </option>
+            `;
+
+        });
+    }
+
+populateLineFamilyFilter();
  // =====================================================
 // GENERATE SAMPLE MONTHLY DATA FOR HEATMAP
 // =====================================================
