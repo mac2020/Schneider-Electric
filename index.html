@@ -1920,6 +1920,8 @@ document.getElementById("stageFactory")
 if (assignment) {
 
     cell.textContent = assignment.sku;
+ cell.style.backgroundColor = "#ECFDF5";
+cell.style.color = "#166534";
 
     // Previous month's assignment
     const currentMonthIndex = months.indexOf(month);
@@ -1935,14 +1937,21 @@ if (assignment) {
         );
 
         // Assignment changed from previous month
-        if (
-            previousAssignment &&
-            previousAssignment.sku !== assignment.sku
-        ) {
-            cell.classList.add("assignment-change");
-        } else {
-            cell.classList.add("assignment-normal");
-        }
+      if (
+    previousAssignment &&
+    previousAssignment.sku !== assignment.sku
+) {
+    cell.classList.add("assignment-change");
+
+    cell.style.backgroundColor = "#FEF3C7";
+    cell.style.color = "#B45309";
+
+} else {
+    cell.classList.add("assignment-normal");
+
+    cell.style.backgroundColor = "#ECFDF5";
+    cell.style.color = "#166534";
+}
 
     } else {
         // First month
