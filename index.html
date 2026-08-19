@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<html>
 <head>
 <meta charset="utf-8">
 <title>CAMA Client Demo v2</title>
@@ -1905,39 +1904,45 @@ document.getElementById("stageFactory")
         renderLineBars();
         renderHeatmap();
     });
- document.getElementById("lineFamilyFilter")
+document.getElementById("lineFamilyFilter")
     .addEventListener("change", function () {
 
-        const selectedFamily = this.value;
+        const filteredData = getFilteredLineViewData();
 
-        const selectedFactory =
-            document.getElementById("lineFactoryFilter").value;
+        console.log("Family Filter:", filteredData);
 
-        const selectedYear =
-            Number(document.getElementById("lineYearFilter").value);
+        renderLineAssignmentCalendar(filteredData);
 
-        const filteredLineData = lineViewData.filter(row => {
+    }); 
+ function getFilteredLineViewData() {
 
-            const yearMatch =
-                row.year === selectedYear;
+    const selectedFamily =
+        document.getElementById("lineFamilyFilter").value;
 
-            const factoryMatch =
-                !selectedFactory ||
-                row.factory === selectedFactory;
+    const selectedFactory =
+        document.getElementById("lineFactoryFilter").value;
 
-            const familyMatch =
-                !selectedFamily ||
-                row.family === selectedFamily;
+    const selectedYear =
+        Number(document.getElementById("lineYearFilter").value);
 
-            return yearMatch &&
-                   factoryMatch &&
-                   familyMatch;
-        });
+    return lineViewData.filter(row => {
 
-        console.log("Line View Filter Result:", filteredLineData);
-       renderLineAssignmentCalendar(filteredLineData);
+        const yearMatch =
+            row.year === selectedYear;
 
+        const factoryMatch =
+            !selectedFactory ||
+            row.factory === selectedFactory;
+
+        const familyMatch =
+            !selectedFamily ||
+            row.family === selectedFamily;
+
+        return yearMatch &&
+               factoryMatch &&
+               familyMatch;
     });
+}
  
  function renderLineAssignmentCalendar(filteredData) {
 
