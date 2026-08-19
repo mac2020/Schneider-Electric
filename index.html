@@ -550,6 +550,15 @@ background:white;
     .capacity-heatmap {
         min-width: 850px;
     }
+ .assignment-normal {
+    background: #ECFDF5;
+    color: #166534;
+}
+
+.assignment-change {
+    background: #FEF3C7;
+    color: #B45309;
+}
 
 </style>
 </head>
@@ -1908,11 +1917,43 @@ document.getElementById("stageFactory")
                     item.month === month
             );
 
-            if (assignment) {
-                cell.textContent = assignment.sku;
-            } else {
-                cell.textContent = "";
-            }
+if (assignment) {
+
+    cell.textContent = assignment.sku;
+
+    // Previous month's assignment
+    const currentMonthIndex = months.indexOf(month);
+
+    if (currentMonthIndex > 0) {
+
+        const previousMonth = months[currentMonthIndex - 1];
+
+        const previousAssignment = filteredData.find(
+            item =>
+                item.line === line &&
+                item.month === previousMonth
+        );
+
+        // Assignment changed from previous month
+        if (
+            previousAssignment &&
+            previousAssignment.sku !== assignment.sku
+        ) {
+            cell.classList.add("assignment-change");
+        } else {
+            cell.classList.add("assignment-normal");
+        }
+
+    } else {
+        // First month
+        cell.classList.add("assignment-normal");
+    }
+
+} else {
+
+    cell.textContent = "";
+
+}
 
             row.appendChild(cell);
 
