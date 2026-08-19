@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<head>
 <meta charset="utf-8">
 <title>CAMA Client Demo v2</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -1823,6 +1822,173 @@ const futureLineViewData = [
 ];
 
 lineViewData.push(...futureLineViewData);
+ // =====================================================
+// LINE VIEW - FULL YEAR DUMMY DATA
+// 2027 / 2028 / 2029
+// =====================================================
+
+const fullYearMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+const fullYearConfigs = [
+
+    // ================= ALOKA =================
+
+    {
+        factory: "Aloka",
+        family: "Family A",
+        line: "SMT L1",
+        skusByYear: {
+            2027: ["SKU-A","SKU-A","SKU-B","SKU-B","SKU-C","SKU-C","SKU-D","SKU-D","SKU-E","SKU-E","SKU-F","SKU-F"],
+            2028: ["SKU-B","SKU-B","SKU-C","SKU-C","SKU-D","SKU-D","SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G"],
+            2029: ["SKU-C","SKU-C","SKU-D","SKU-D","SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G","SKU-H","SKU-H"]
+        }
+    },
+
+    {
+        factory: "Aloka",
+        family: "Family A",
+        line: "SMT L2",
+        skusByYear: {
+            2027: ["SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L"],
+            2028: ["SKU-H","SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N"],
+            2029: ["SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-O"]
+        }
+    },
+
+    {
+        factory: "Aloka",
+        family: "Family A",
+        line: "SMT L3",
+        skusByYear: {
+            2027: ["SKU-J","SKU-K","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O"],
+            2028: ["SKU-P","SKU-P","SKU-Q","SKU-Q","SKU-R","SKU-R","SKU-R","SKU-S","SKU-S","SKU-T","SKU-T","SKU-U"],
+            2029: ["SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-P"]
+        }
+    },
+
+    {
+        factory: "Aloka",
+        family: "Family B",
+        line: "MI L1",
+        skusByYear: {
+            2027: ["SKU-C","SKU-C","SKU-D","SKU-D","SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G","SKU-H","SKU-H"],
+            2028: ["SKU-D","SKU-D","SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I"],
+            2029: ["SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J"]
+        }
+    },
+
+    {
+        factory: "Aloka",
+        family: "Family C",
+        line: "CC L1",
+        skusByYear: {
+            2027: ["SKU-E","SKU-E","SKU-F","SKU-F","SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J"],
+            2028: ["SKU-F","SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-M"],
+            2029: ["SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-M"]
+        }
+    },
+
+
+    // ================= BANGALORE =================
+
+    {
+        factory: "Bangalore",
+        family: "Family A",
+        line: "SMT B1",
+        skusByYear: {
+            2027: ["SKU-G","SKU-G","SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L"],
+            2028: ["SKU-H","SKU-H","SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-M","SKU-M","SKU-N"],
+            2029: ["SKU-I","SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N"]
+        }
+    },
+
+    {
+        factory: "Bangalore",
+        family: "Family B",
+        line: "MI B1",
+        skusByYear: {
+            2027: ["SKU-I","SKU-J","SKU-J","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N","SKU-O"],
+            2028: ["SKU-J","SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-P"],
+            2029: ["SKU-K","SKU-K","SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-Q"]
+        }
+    },
+
+
+    // ================= HYDERABAD =================
+
+    {
+        factory: "Hyderabad",
+        family: "Family A",
+        line: "SMT H1",
+        skusByYear: {
+            2027: ["SKU-L","SKU-L","SKU-M","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-P","SKU-Q","SKU-Q"],
+            2028: ["SKU-M","SKU-M","SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-P","SKU-Q","SKU-Q","SKU-R","SKU-R"],
+            2029: ["SKU-N","SKU-N","SKU-O","SKU-O","SKU-P","SKU-P","SKU-Q","SKU-Q","SKU-R","SKU-R","SKU-S","SKU-S"]
+        }
+    },
+
+    {
+        factory: "Hyderabad",
+        family: "Family B",
+        line: "MI H1",
+        skusByYear: {
+            2027: ["SKU-R","SKU-R","SKU-S","SKU-S","SKU-T","SKU-T","SKU-U","SKU-U","SKU-V","SKU-V","SKU-W","SKU-W"],
+            2028: ["SKU-S","SKU-S","SKU-T","SKU-T","SKU-U","SKU-U","SKU-V","SKU-V","SKU-W","SKU-W","SKU-X","SKU-X"],
+            2029: ["SKU-T","SKU-T","SKU-U","SKU-U","SKU-V","SKU-V","SKU-W","SKU-W","SKU-X","SKU-X","SKU-Y","SKU-Y"]
+        }
+    }
+
+];
+
+
+// Generate missing monthly records for all 3 years
+fullYearConfigs.forEach(config => {
+
+    [2027, 2028, 2029].forEach(year => {
+
+        const skuList = config.skusByYear[year];
+
+        fullYearMonths.forEach((month, index) => {
+
+            const alreadyExists = lineViewData.some(row =>
+                row.year === year &&
+                row.month === month &&
+                row.factory === config.factory &&
+                row.family === config.family &&
+                row.line === config.line
+            );
+
+            if (!alreadyExists) {
+
+                lineViewData.push({
+                    year: year,
+                    month: month,
+                    factory: config.factory,
+                    family: config.family,
+                    line: config.line,
+                    sku: skuList[index]
+                });
+
+            }
+
+        });
+
+    });
+
+});
 
     // tumhara existing JavaScript
     // ...
