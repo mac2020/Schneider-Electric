@@ -487,12 +487,22 @@ background:white;
     font-weight: 600;
 }
 
-.heatmap-cell.watch {
+.heatmap-cell.blue {
+    background: #DBEAFE !important;
+    color: #1D4ED8 !important;
+}
+
+.heatmap-cell.green {
+    background: #DCFCE7 !important;
+    color: #166534 !important;
+}
+
+.heatmap-cell.amber {
     background: #FEF3C7 !important;
     color: #B45309 !important;
 }
 
-.heatmap-cell.critical {
+.heatmap-cell.red {
     background: #FEE2E2 !important;
     color: #B91C1C !important;
 }
@@ -816,24 +826,29 @@ background:white;
                 Monthly line utilization from January to December
             </div>
         </div>
-      <div class="heatmap-legend">
+     <div class="heatmap-legend">
 
-        <div class="legend-item">
-            <span class="legend-box available"></span>
-            <span>Available</span>
-        </div>
-
-        <div class="legend-item">
-            <span class="legend-box watch"></span>
-            <span>Watch</span>
-        </div>
-
-        <div class="legend-item">
-            <span class="legend-box critical"></span>
-            <span>Critical</span>
-        </div>
-
+    <div class="legend-item">
+        <span class="legend-box blue"></span>
+        <span>&lt; 50%</span>
     </div>
+
+    <div class="legend-item">
+        <span class="legend-box green"></span>
+        <span>50–&lt;100%</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="legend-box amber"></span>
+        <span>100–120%</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="legend-box red"></span>
+        <span>&gt; 120%</span>
+    </div>
+
+</div>
 
 
 
@@ -1549,13 +1564,19 @@ function renderHeatmap() {
             const loadRate =
                 (row.requiredHours / row.availableHours) * 100;
 
-            let cellClass = "heatmap-cell";
+           let cellClass = "heatmap-cell";
 
-if (loadRate > 100) {
-    cellClass += " critical";
+if (loadRate < 50) {
+    cellClass += " blue";
 }
-else if (loadRate >= 80) {
-    cellClass += " watch";
+else if (loadRate < 100) {
+    cellClass += " green";
+}
+else if (loadRate <= 120) {
+    cellClass += " amber";
+}
+else {
+    cellClass += " red";
 }
 
 html += `
