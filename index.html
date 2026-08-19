@@ -2406,6 +2406,17 @@ document.getElementById("lineFamilyFilter")
         renderLineAssignmentCalendar(filteredData);
 
     });
+ document.getElementById("lineFactoryFilter")
+    .addEventListener("change", function () {
+
+        const filteredData =
+            getFilteredLineViewData();
+
+        console.log("Factory Filter:", filteredData);
+
+        renderLineAssignmentCalendar(filteredData);
+
+    });
  function renderLineAssignmentCalendar(filteredData) {
 
     const tableBody =
