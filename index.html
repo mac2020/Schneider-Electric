@@ -2228,7 +2228,18 @@ document.getElementById("lineFamilyFilter")
                familyMatch;
     });
 }
- 
+
+ document.getElementById("lineYearFilter")
+    .addEventListener("change", function () {
+
+        const filteredData =
+            getFilteredLineViewData();
+
+        console.log("Year Filter:", filteredData);
+
+        renderLineAssignmentCalendar(filteredData);
+
+    });
  function renderLineAssignmentCalendar(filteredData) {
 
     const tableBody =
