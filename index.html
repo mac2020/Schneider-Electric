@@ -2600,11 +2600,21 @@ document.getElementById("lineFamilyFilter")
 
         const lineCell = document.createElement("td");
         lineCell.textContent = line;
+     lineCell.style.fontWeight = "700";
+lineCell.style.backgroundColor = "#F8FAFC";
+lineCell.style.color = "#1E293B";
+lineCell.style.padding = "10px";
+lineCell.style.textAlign = "left";
         row.appendChild(lineCell);
 
         months.forEach(month => {
 
             const cell = document.createElement("td");
+         cell.style.padding = "10px";
+cell.style.textAlign = "center";
+cell.style.fontSize = "13px";
+cell.style.fontWeight = "600";
+cell.style.borderBottom = "1px solid #EEF2F7";
 
             const assignment = filteredData.find(
                 item =>
