@@ -899,11 +899,22 @@ background:white;
       <!-- Line View Filters -->
 <!-- Line View Filters -->
 <div class="line-view-filters"
-     style="display:flex; flex-direction:row; align-items:flex-end; gap:16px; flex-wrap:nowrap; background:#FFFFFF !important;">
+     style="
+        display:flex;
+        flex-direction:row;
+        align-items:flex-end;
+        gap:16px;
+        flex-wrap:nowrap;
+        width:100%;
+        box-sizing:border-box;
+        background:#FFFFFF !important;
+        padding:18px;
+     ">
 
     <div class="filter-group" style="width:180px;">
         <label for="lineYearFilter">Year</label>
-        <select id="lineYearFilter">
+        <select id="lineYearFilter"
+        style="background:#FFFFFF !important;">
             <option value="2027" selected>2027</option>
             <option value="2028">2028</option>
             <option value="2029">2029</option>
@@ -912,7 +923,8 @@ background:white;
 
 <div class="filter-group" style="width:180px;">
         <label for="lineFactoryFilter">Factory</label>
-        <select id="lineFactoryFilter">
+       <select id="lineFactoryFilter"
+        style="background:#FFFFFF !important;">
             <option value="Aloka" selected>Aloka</option>
             <option value="Bangalore">Bangalore</option>
             <option value="Hyderabad">Hyderabad</option>
@@ -921,7 +933,8 @@ background:white;
 
   <div class="filter-group" style="width:180px;">
         <label for="lineFamilyFilter">Family</label>
-        <select id="lineFamilyFilter">
+        <select id="lineFamilyFilter"
+        style="background:#FFFFFF !important;">
             <option value="" selected>Select Family</option>
          <option value="Family A">Family A</option>
     <option value="Family B">Family B</option>
